@@ -1,47 +1,46 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using MiniMeitoBackend.Models;
-using MiniMeitoBackend.Data;
 using Microsoft.EntityFrameworkCore;
+using MiniMeitoBackend.Models;
 
-public class PocketMonsterRepository : IPocketMonsterRepository
+namespace MiniMeitoBackend.Data.Repositories
 {
-  private readonly MiniMeitoDbContext _context;
-
-  public PocketMonsterRepository(MiniMeitoDbContext context)
-  {
-    _context = context;
-  }
-
-  public async Task<IEnumerable<PocketMonster>> GetAllPocketMonstersAsync()
-  {
-    return await _context.PocketMonsters.ToListAsync();
-  }
-
-  public async Task<PocketMonster?> GetPocketMonsterByIdAsync(int id)
-  {
-    return await _context.PocketMonsters.FindAsync(id);
-  }
-
-  public async Task AddPocketMonsterAsync(PocketMonster pocketMonster)
-  {
-    await _context.PocketMonsters.AddAsync(pocketMonster);
-    await _context.SaveChangesAsync();
-  }
-
-  public async Task UpdatePocketMonsterAsync(PocketMonster pocketMonster)
-  {
-    _context.PocketMonsters.Update(pocketMonster);
-    await _context.SaveChangesAsync();
-  }
-
-  public async Task DeletePocketMonsterAsync(int id)
-  {
-    var pocketMonster = await _context.PocketMonsters.FindAsync(id);
-    if (pocketMonster != null)
+    public class PocketMonsterRepository : IPocketMonsterRepository
     {
-      _context.PocketMonsters.Remove(pocketMonster);
-      await _context.SaveChangesAsync();
+        private readonly MiniMeitoDbContext _context;
+
+        public PocketMonsterRepository(MiniMeitoDbContext context)
+        {
+            _context = context;
+        }
+
+        public async Task<IEnumerable<PocketMonster>> GetAllPocketMonstersAsync()
+        {
+            return await _context.PocketMonsters.ToListAsync();
+        }
+
+        public async Task<PocketMonster> GetPocketMonsterByIdAsync(int id)
+        {
+            return await _context.PocketMonsters.FindAsync(id);
+        }
+
+        public async Task AddPocketMonsterAsync(PocketMonster pocketMonster)
+        {
+            await _context.PocketMonsters.AddAsync(pocketMonster);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task UpdatePocketMonsterAsync(PocketMonster pocketMonster)
+        {
+            _context.Entry(pocketMonster).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task DeletePocketMonsterAsync(int id)
+        {
+            var pocketMonster = await _context.PocketMonsters.FindAsync(id);
+            _context.PocketMonsters.Remove(pocketMonster);
+            await _context.SaveChangesAsync();
+        }
     }
-  }
 }

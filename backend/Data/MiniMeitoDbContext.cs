@@ -1,7 +1,7 @@
 #nullable disable
 using Microsoft.EntityFrameworkCore;
 using MiniMeitoBackend.Models;
-
+using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 namespace MiniMeitoBackend.Data
 {
   public class MiniMeitoDbContext: DbContext

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "a/pSazIsrAjgoQbOK5L1oLgn5DwGCNDzYvAoCD8PXV+JRYNUsbuOpCqlXGYJwe4XlQRUVTPJfrUFgQCvt2l7fw==",
+  "dgSpecHash": "4miOAGFwsPDBdLMg7+JRgtSsVGfvvsZUj2GpkfP5SUhrL9UQTzeTDtpUDnX6RaKV3eHmtQEbo5GOlZt0zpXG5w==",
   "success": true,
   "projectFilePath": "C:\\Users\\justi\\Desktop\\MiniMeito\\backend\\backend.csproj",
   "expectedPackageFiles": [
@@ -24,8 +24,8 @@
     "C:\\Users\\justi\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",
     "C:\\Users\\justi\\.nuget\\packages\\microsoft.openapi\\1.4.3\\microsoft.openapi.1.4.3.nupkg.sha512",
     "C:\\Users\\justi\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
-    "C:\\Users\\justi\\.nuget\\packages\\mysqlconnector\\2.2.5\\mysqlconnector.2.2.5.nupkg.sha512",
-    "C:\\Users\\justi\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\7.0.0\\pomelo.entityframeworkcore.mysql.7.0.0.nupkg.sha512",
+    "C:\\Users\\justi\\.nuget\\packages\\mysqlconnector\\2.0.0-rc.1\\mysqlconnector.2.0.0-rc.1.nupkg.sha512",
+    "C:\\Users\\justi\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\6.0.0-rc.2\\pomelo.entityframeworkcore.mysql.6.0.0-rc.2.nupkg.sha512",
     "C:\\Users\\justi\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
     "C:\\Users\\justi\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
     "C:\\Users\\justi\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
@@ -34,5 +34,16 @@
     "C:\\Users\\justi\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",
     "C:\\Users\\justi\\.nuget\\packages\\system.text.json\\7.0.0\\system.text.json.7.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1603",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "backend depends on Pomelo.EntityFrameworkCore.MySql (>= 6.0.0-rc.1.21452.26) but Pomelo.EntityFrameworkCore.MySql 6.0.0-rc.1.21452.26 was not found. An approximate best match of Pomelo.EntityFrameworkCore.MySql 6.0.0-rc.2 was resolved.",
+      "libraryId": "Pomelo.EntityFrameworkCore.MySql",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    }
+  ]
 }
