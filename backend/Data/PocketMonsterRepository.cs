@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using MiniMeitoBackend.Models;
 using MiniMeitoBackend.Data;
+using Microsoft.EntityFrameworkCore;
 
 public class PocketMonsterRepository : IPocketMonsterRepository
 {
@@ -17,7 +18,7 @@ public class PocketMonsterRepository : IPocketMonsterRepository
     return await _context.PocketMonsters.ToListAsync();
   }
 
-  public async Task<PocketMonster> GetPocketMonsterByIdAsync(int id)
+  public async Task<PocketMonster?> GetPocketMonsterByIdAsync(int id)
   {
     return await _context.PocketMonsters.FindAsync(id);
   }
