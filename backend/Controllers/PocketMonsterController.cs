@@ -7,7 +7,7 @@ using MiniMeitoBackend.Models;
 namespace MiniMeitoBackend.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/pocketmonsters")]
     public class PocketMonsterController : ControllerBase
     {
         private readonly IPocketMonsterRepository _repository;
