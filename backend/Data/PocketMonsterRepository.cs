@@ -1,3 +1,4 @@
+#nullable disable warnings
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
@@ -19,7 +20,7 @@ namespace MiniMeitoBackend.Data.Repositories
             return await _context.PocketMonsters.ToListAsync();
         }
 
-        public async Task<PocketMonster> GetPocketMonsterByIdAsync(int id)
+        public async Task<PocketMonster?> GetPocketMonsterByIdAsync(int id)
         {
             return await _context.PocketMonsters.FindAsync(id);
         }
@@ -39,8 +40,11 @@ namespace MiniMeitoBackend.Data.Repositories
         public async Task DeletePocketMonsterAsync(int id)
         {
             var pocketMonster = await _context.PocketMonsters.FindAsync(id);
-            _context.PocketMonsters.Remove(pocketMonster);
-            await _context.SaveChangesAsync();
+            if (pocketMonster != null)
+            {
+                _context.PocketMonsters.Remove(pocketMonster);
+                await _context.SaveChangesAsync();
+            }
         }
     }
 }
